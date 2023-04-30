@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(3, 1, 20);
+}
+
+.title {
+    padding: 3rem 0;
+    color: rgb(255,255,255);
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: center;
+    font-size: 80px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.jugador_x, .jugador_o{
+    background-color: transparent;
+    font-size: 5rem;
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    text-shadow: 10px 10px 10px black;
+    padding: 2rem;
+    border: none;
+    display: none;
+}
+
+.jugador_x.vs, .jugador_o.vs {
+    display: block;
+}
+
+
+.jugador_x:hover, .jugador_o:hover {
+    animation-name: translate_button_player;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes translate_button_player {
+    0% {
+        translate: 0 0;
+    }
+
+    25% {
+        translate: 0 -0.7rem;
+    }
+
+    50% {
+        translate: 0 0;
+    }
+
+    75% {
+        translate: 0 0.4rem;
+    }
+
+    100% {
+        translate: 0 0;
+    }
+
+}
+
+.container-spaces {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.space {
+    background-color: rgb(0,0,0);
+    width: 200px;
+    height: 200px;
+    border: 3px white solid;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.x {
+    background: url(/recursos/x.png);
+    background-size: contain;
+}
+
+.o {
+    background: url(/recursos/o.png);
+    background-size: contain;
+}
+
+.mostrar_ganador {
+    display: none;
+}
+
+.winner {
+    display: block;
+    position: fixed;
+    width: calc(100%);
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#vista_ganador {
+    color: white;
+    font-size: 10rem;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+#cerrar {
+    position: absolute;
+    bottom: 10%;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.2);
+    font-family: 'Chakra Petch', sans-serif;
+    border: 2px rgba(255, 255, 255, 0.2) solid;
+    border-radius: 25px;
+    padding: 10px 12px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#cerrar:hover {
+    color: rgba(255, 255, 255, 1);
+    border: 2px rgba(255, 255, 255, 1) solid;
+}
+
+.mostrar_jugador {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    transition: opacity 3s ease;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    display: flex;
+    align-items: self-end;
+    justify-content: center;
+}
+
+.mostrar_jugador:not(.visible) {
+    background-color: rgba(0,0,0,0.9);
+    opacity: 1;
+}
+
+.texto_mostrar_jugador {
+    color: white;
+    font-size: 100px;
+    text-align: center;
+    font-family: 'Chakra Petch', sans-serif;
+    text-shadow: 5px 5px 5px rgb(31, 14, 94);
+}
